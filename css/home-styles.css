@@ -8,6 +8,11 @@ body {
     background: #1c1c1b;
 }
 
+
+
+
+
+/* links del header */
 a:link, a:visited { 
     color: #e6e154; 
     text-decoration: none; 
@@ -204,6 +209,8 @@ img {
      margin: 0;
      padding: 0; 
 }
+
+
 
 
 
