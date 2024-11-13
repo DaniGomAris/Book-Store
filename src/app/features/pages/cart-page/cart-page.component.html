@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div id="content">
+    <main>
+        <h1>Carrito de Compras</h1>
+
+        <table id="cart">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="/assets/image_01.jpg" alt="Libro de Ciencia Ficción" class="product-image"></td>
+                    <td>Libro de Ciencia Ficción</td>
+                    <td>$20.00</td>
+                    <td>
+                        <input type="number" value="2" min="1" class="quantity">
+                    </td>
+                    <td class="item-total">$40.00</td>
+                    <td><button class="remove-item"><i class="fas fa-trash"></i></button></td>
+                </tr>
+                <tr>
+                    <td><img src="/assets/image_02.jpg" alt="Novela Romántica" class="product-image"></td>
+                    <td>Novela Romántica</td>
+                    <td>$15.00</td>
+                    <td>
+                        <input type="number" value="1" min="1" class="quantity">
+                    </td>
+                    <td class="item-total">$15.00</td>
+                    <td><button class="remove-item"><i class="fas fa-trash"></i></button></td>
+                </tr>
+                <tr>
+                    <td><img src="/assets/image_03.jpg" alt="Historia del Arte" class="product-image"></td>
+                    <td>Historia del Arte</td>
+                    <td>$25.00</td>
+                    <td>
+                        <input type="number" value="1" min="1" class="quantity">
+                    </td>
+                    <td class="item-total">$25.00</td>
+                    <td><button class="remove-item"><i class="fas fa-trash"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="cart-summary">
+            <p><strong>Total:</strong> <span id="total-price">$80.00</span></p>
+            <button id="checkout-btn">Proceder a la compra</button>
+        </div>
+    </main>
+</div>
+<app-footer></app-footer>

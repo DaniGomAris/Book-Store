@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div id="content">
+    <main>
+        <div class="login-box">
+            <h1>Iniciar Sesion</h1>
+            <div class="input-group">
+                <input type="text" id="login-username" placeholder="Nombre de usuario" required/>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="login-password" placeholder="Contraseña" required/>
+            </div>
+
+            <button><a [routerLink]="['/home']">Entrar</a></button>
+            <hr>
+            <p>No tienes una cuenta? <a [routerLink]="['/sign-up']">Crear cuenta</a></p>
+        </div>
+    </main>
+</div>
+<app-footer></app-footer>

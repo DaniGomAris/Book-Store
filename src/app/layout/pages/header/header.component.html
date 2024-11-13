@@ -1,0 +1,37 @@
+<header>
+    <div id="menu">
+        <ul>
+            <li>
+                <a [routerLink]="['/home']" class="current">Inicio</a>
+            </li>
+            <li>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </li>          
+            <li><a [routerLink]="['/empresa']">Empresa</a></li> 
+            <li><a [routerLink]="['/contacto']">Contacto</a></li>
+            <li><a [routerLink]="['/sign-in']">Hola, Inicia Sesion</a></li>  
+            <li><a [routerLink]="['/cart']" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </div>
+
+    <div id="header">
+        <div id="special_offers">
+            <p>
+                <span>25%</span> de descuento en compras superiores a 80.000$
+            </p>
+            <a href="">Leer más...</a>
+        </div>
+
+        <div id="new_books">
+            <ul>
+                <li>Suspenso</li>
+                <li>Misterio</li>
+                <li>Ficción</li>
+            </ul>
+            <a href="">Leer más...</a>
+        </div>
+    </div>
+</header>
