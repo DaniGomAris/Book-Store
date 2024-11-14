@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div id="container">
-    <div id="content">   
+    <div id="content">
         <div id="content_left">
             <div class="content_left_section">
                 <h1>Categorías</h1>
@@ -31,8 +31,33 @@
                 </ul>
             </div>
         </div>
-        
+
         <div id="content_right">
+            <!-- Campo de búsqueda de libros -->
+            <div class="busqueda-libros">
+                <h2>Buscar Libros</h2>
+                <input
+                    type="text"
+                    [(ngModel)]="tituloBusqueda"
+                    placeholder="Escribe el título del libro"
+                    (keyup.enter)="buscarLibros()"
+                />
+                <button (click)="buscarLibros()">Buscar</button>
+            </div>
+
+            <!-- Mostrar resultados de la búsqueda -->
+            <div *ngIf="libros.length > 0" class="resultados-libros">
+                <h3>Resultados de la Búsqueda:</h3>
+                <ul>
+                    <li *ngFor="let libro of libros" class="resultado-libro">
+                        <strong>{{ libro.title }}</strong>
+                        <span *ngIf="libro.author_name"> - {{ libro.author_name.join(', ') }}</span>
+                        <p *ngIf="libro.first_publish_year">Publicado en {{ libro.first_publish_year }}</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contenido de productos existente -->
             <div class="product_box">
                 <h1>Fotografía  <span>(por Mejor Autor)</span></h1>
                 <img src="assets/image_01.jpg" alt="imagen 1">
@@ -44,54 +69,11 @@
                 </div>
                 <div class="cleaner">&nbsp;</div>
             </div>
+
             <div class="cleaner_with_width">&nbsp;</div>
-            
-            <div class="product_box">
-                <h1>Cocina  <span>(por Nuevo Autor)</span></h1>
-                <img src="/assets/image_02.jpg" alt="imagen 2">
-                <div class="product_info">
-                    <p>Aliquam a dui, ac magna quis est eleifend dictum.</p>
-                    <h3>$35</h3>
-                    <div class="buy_now_button"><a href="">Comprar Ahora</a></div>
-                    <div class="detail_button"><a href="">Detalles</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_height">&nbsp;</div>
-            
-            <div class="product_box">
-                <h1>Jardinería <span>(por Autor Famoso)</span></h1>
-                <img src="/assets/image_03.jpg" alt="imagen 3">
-                <div class="product_info">
-                    <p>Ut fringilla enim sed turpis. Sed justo dolor, convallis at.</p>
-                    <h3>$65</h3>
-                    <div class="buy_now_button"><a href="">Comprar Ahora</a></div>
-                    <div class="detail_button"><a href="">Detalles</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_width">&nbsp;</div>
-            
-            <div class="product_box">
-                <h1>Libro de Sushi  <span>(por Nombre Japonés)</span></h1>
-                <img src="/assets/image_04.jpg" alt="imagen 4">
-                <div class="product_info">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <h3>$45</h3>
-                    <div class="buy_now_button"><a href="">Comprar Ahora</a></div>
-                    <div class="detail_button"><a href="">Detalles</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
-            
-            <div class="cleaner_with_height">&nbsp;</div>
-            
+
             <a href=""><img src="/assets/ads.jpg" alt="publicidad"></a>
         </div>
-        
-
     </div>
 </div>
 <app-footer></app-footer>

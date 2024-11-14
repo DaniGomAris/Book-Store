@@ -42,7 +42,7 @@ export class SignUpComponent {
 
       this.usuarioService.register(nombre, email, password).subscribe({
         next: (response) => {
-          console.log('Usuario registrado con éxito:', response);
+          //console.log('Usuario registrado con éxito:', response);
           this.router.navigate(['/sign-in']); // Redirige a sign-in al finalizar el registro
         },
         error: (error) => {

@@ -8,7 +8,7 @@ import { HeaderComponent } from './layout/pages/header/header.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  //standalone: true,
   imports: [RouterOutlet,
             HeaderComponent,
             HeaderComponent,
