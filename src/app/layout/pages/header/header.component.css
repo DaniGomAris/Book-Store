@@ -224,27 +224,31 @@ body {
 
 
 /* Menu que se despliega */
+.user-login {
+    position: relative;
+}
+
 .sesion-menu {
+    position: absolute;
+    top: 25px;
+    left: 0;
     background-color: #b6b58c;
     color: black;
-    padding: 10px;
-    position: absolute;
-    top: 45px;
-    left: 0;
-    width: 110px;
-    z-index: 100;
-    margin-left: 1014px;
+    padding: 7px;
+    width: 130px;
+    z-index: 1000;
     text-align: center;
-  }
-  
-  .sesion-menu p a, .sesion-menu a {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sesion-menu p a, .sesion-menu a {
     color: black !important;
     font-weight: bold;
 }
 
 .sesion-menu p a:hover, .sesion-menu a:hover {
-    color: black;
     background-color: #969547;
+    color: black;
 }
 
   
