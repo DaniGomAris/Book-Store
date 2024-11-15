@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CartService } from './services/cart.service';  // Importar el servicio
 
 @NgModule({
   declarations: [
@@ -26,9 +27,9 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule,
     RouterModule,
-    CommonModule // Importa CommonModule aquí
+    CommonModule
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Agrega esto para reconocer elementos personalizados
 })

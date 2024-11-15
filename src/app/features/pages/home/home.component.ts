@@ -4,6 +4,7 @@ import { FooterComponent } from "../../../layout/pages/footer/footer.component";
 import { RouterModule } from '@angular/router';
 import { LibroService } from "../../../services/libro.service";
 import { CommonModule } from '@angular/common';
+import { CartService } from "../../../services/cart.service";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,10 @@ export class HomeComponent implements OnInit {
   generos: string[] = ['accion', 'ficcion', 'misterio', 'ciencia_ficcion', 'fantasia', 'biografia', 'romantica', 'historia', 'desarrollo_personal'];
   precios: number[] = [];
 
-  constructor(private libroService: LibroService) { }
+  constructor(
+    private libroService: LibroService,
+    private cartService: CartService,
+  ) { }
 
   ngOnInit() {
     const generoAleatorio = this.generos[Math.floor(Math.random() * this.generos.length)];
@@ -28,4 +32,11 @@ export class HomeComponent implements OnInit {
       this.precios = this.libros.map(() => Math.floor(Math.random() * (100 - 5 + 1)) + 5);
     });
   }
+
+  agregarAlCarrito(libro: any) {
+    const libroConPrecio = { ...libro, precio: this.precios[this.libros.indexOf(libro)] };
+    this.cartService.agregarAlCarrito(libroConPrecio);
+    alert(`${libro.title} ha sido añadido al carrito.`);
+  }
+  
 }

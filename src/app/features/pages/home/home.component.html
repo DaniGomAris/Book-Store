@@ -40,7 +40,9 @@
                     <p>{{ libro.author_name }}</p>
                     <p>{{ libro.first_publish_year }}</p>
                     <h3>${{ precios[i] || "$32" }}</h3>
-                    <div class="buy_now_button"><a href="">Comprar Ahora</a></div>
+                    <div class="buy_now_button">
+                        <a href="javascript:void(0);" (click)="agregarAlCarrito(libro)">Agregar</a>
+                    </div>
                     <div class="detail_button"><a href="">Detalles</a></div>
                 </div>
                 <div class="cleaner">&nbsp;</div>

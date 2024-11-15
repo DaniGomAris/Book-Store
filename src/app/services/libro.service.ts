@@ -11,7 +11,7 @@ export class LibroService {
 
   constructor(private http: HttpClient) { }
 
-  // Método para buscar libros por título
+  // Buscar libros por titulo
   buscarLibros(titulo: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/search.json?title=${titulo}`);
   }
