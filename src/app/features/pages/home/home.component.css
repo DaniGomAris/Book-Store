@@ -1,4 +1,4 @@
-/* contenido de libros */
+/* contenido de libros*/
 a:link, a:visited { 
     color: #e6e154; 
     text-decoration: none; 
@@ -142,7 +142,7 @@ img {
 #content_right .product_box {
     float: left;
     width: 303px;
-    height: 210px;
+    height: 220px;
     padding: 10px;
     border: 1px solid #333;
 }
@@ -194,14 +194,14 @@ img {
 
 
 
-/* productos */
-.product_box h1 span {
-    font-weight: normal;
-}
 
+
+/* productos */
 .product_box img {
     float: left;
     margin-right: 20px;
+    width: 100px;
+    height: auto;
 }
 
 .product_box .product_info {
@@ -209,6 +209,18 @@ img {
     width: 180px;
 }
 
+.product_info h3 {
+    font-weight: 3px;
+}
+
 .product_info p {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
+}
+
+
+
+/* iamgen de abajo */
+.ads-container img {
+    margin-top: 30px;
+    width: 96%;
 }

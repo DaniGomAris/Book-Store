@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LibroService } from '../../../services/libro.service';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ import { LibroService } from '../../../services/libro.service';
 export class HeaderComponent {
   libros: any[] = [];
   tituloBusqueda: string = '';
-  resultadosVisible: boolean = false;  // Variable para controlar la visibilidad de los resultados de búsqueda
+  resultadosVisible: boolean = false;
+  sesionMenuVisible: boolean = false;
 
   constructor(private libroService: LibroService) {}
 
@@ -22,8 +24,24 @@ export class HeaderComponent {
     if (this.tituloBusqueda.trim()) {
       this.libroService.buscarLibros(this.tituloBusqueda).subscribe(response => {
         this.libros = response.docs;
-        this.resultadosVisible = this.libros.length > 0;  // Mostrar los resultados si existen
+        this.resultadosVisible = this.libros.length > 0;
       });
+    }
+  }
+
+  toggleSesionMenu(): void {
+    this.sesionMenuVisible = !this.sesionMenuVisible;
+  }
+
+  @HostListener('document:click', ['$event'])
+  oneClickOutside(event: MouseEvent): void {
+    const sesionMenu = document.querySelector('.sesion-menu');
+
+    if (
+      sesionMenu && !sesionMenu.contains(event.target as Node)
+    ) 
+    {
+      this.sesionMenuVisible = false;
     }
   }
 
@@ -32,9 +50,11 @@ export class HeaderComponent {
     const searchBar = document.querySelector('.search-bar');
     const resultados = document.querySelector('.resultados-libros');
     
-    // Verifica si el clic fue fuera de la barra de búsqueda y los resultados
-    if (searchBar && !searchBar.contains(event.target as Node) && resultados && !resultados.contains(event.target as Node)) {
-      this.resultadosVisible = false;  // Oculta los resultados
+    if (searchBar && !searchBar.contains(event.target as Node) &&
+    resultados && !resultados.contains(event.target as Node)
+    ) 
+    {
+      this.resultadosVisible = false;
     }
   }
 }

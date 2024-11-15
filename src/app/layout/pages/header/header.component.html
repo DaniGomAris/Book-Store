@@ -18,7 +18,6 @@
               <i class="fas fa-search"></i>
             </button>
   
-            <!-- Cuadro de resultados de búsqueda -->
             <div *ngIf="resultadosVisible" class="resultados-libros">
               <ul>
                 <li *ngFor="let libro of libros" class="resultado-libro">
@@ -31,7 +30,13 @@
         </li>
         <li><a [routerLink]="['/empresa']">Empresa</a></li> 
         <li><a [routerLink]="['/contacto']">Contacto</a></li>
-        <li><a [routerLink]="['/sign-in']">Hola, Inicia Sesion</a></li>  
+        <li (click)="toggleSesionMenu()" class="user-login">
+            <a href="javascript:void(0)">Hola, Inicia Sesión</a>
+            <div *ngIf="sesionMenuVisible" class="sesion-menu">
+              <p><a [routerLink]="['/sign-in']">Iniciar sesión</a></p>
+              <p><a href="">Cerrar sesión</a></p>
+            </div>
+        </li>  
         <li><a [routerLink]="['/cart']" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
     </div>
