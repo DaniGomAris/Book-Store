@@ -24,12 +24,10 @@ export class SignInComponent {
   onLogin(): void {
     this.usuarioService.login(this.email, this.password).subscribe(
       (response) => {
-        // Almacena el token o cualquier dato relevante
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/home']); // Redirige a la página de inicio después de un login exitoso
+        this.router.navigate(['/home']);
       },
       (error) => {
-        // Muestra mensaje de error si el login falla
         this.errorMessage = 'Correo o contraseña incorrectos';
         console.error('Error en el login:', error);
       }

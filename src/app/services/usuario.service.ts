@@ -11,45 +11,44 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  // Método para iniciar sesión
+  // Iniciar sesión
   login(email: string, password: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/user/login`, { email, password });
   }
 
-  // Método para registrar un nuevo usuario
+  // Registrar un nuevo usuario
   register(nombre: string, email: string, password: string): Observable<any> {
     const userData = { nombre, email, password };
     return this.http.post(`${this.apiUrl}/user/create`, userData);
   }
 
-  // Método para actualizar el usuario
+  // Actualizar el usuario
   updateUser(nombre: string, email: string, fecha_nacimiento: string, token: string): Observable<any> {
     const headers = { 'Authorization': `Bearer ${token}` };
     return this.http.post(`${this.apiUrl}/update`, { nombre, email, fecha_nacimiento }, { headers });
   }
 
-  // Método para guardar la sesión del usuario en el LocalStorage
+  // Guardar la sesión del usuario en el LocalStorage
   setSession(userData: any): void {
     localStorage.setItem('user', JSON.stringify(userData));
   }
 
-  // Método para cerrar sesión
+  // Cerrar sesión
   logout(): void {
-    // Actualizar el estado de la sesión en localStorage
     const user = JSON.parse(localStorage.getItem('user')!);
     if (user) {
-      user.isLoggedIn = false; // Marcar como no logueado
+      user.isLoggedIn = false;
       localStorage.setItem('user', JSON.stringify(user));
     }
   }
   
 
-  // Método para verificar si el usuario está logueado
+  // Verificar si el usuario está logueado
   isLoggedIn(): boolean {
     return localStorage.getItem('user') !== null;
   }
 
-  // Método para obtener el nombre del usuario logueado
+  // Obtener el nombre del usuario logueado
   getUsername(): string | null {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user).nombre : null;

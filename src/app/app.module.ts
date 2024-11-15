@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CartService } from './services/cart.service';  // Importar el servicio
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,6 @@ import { CartService } from './services/cart.service';  // Importar el servicio
   ],
   providers: [CartService],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Agrega esto para reconocer elementos personalizados
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
