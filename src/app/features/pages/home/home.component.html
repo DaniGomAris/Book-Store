@@ -33,30 +33,6 @@
         </div>
 
         <div id="content_right">
-            <!-- Campo de búsqueda de libros -->
-            <div class="busqueda-libros">
-                <h2>Buscar Libros</h2>
-                <input
-                    type="text"
-                    [(ngModel)]="tituloBusqueda"
-                    placeholder="Escribe el título del libro"
-                    (keyup.enter)="buscarLibros()"
-                />
-                <button (click)="buscarLibros()">Buscar</button>
-            </div>
-
-            <!-- Mostrar resultados de la búsqueda -->
-            <div *ngIf="libros.length > 0" class="resultados-libros">
-                <h3>Resultados de la Búsqueda:</h3>
-                <ul>
-                    <li *ngFor="let libro of libros" class="resultado-libro">
-                        <strong>{{ libro.title }}</strong>
-                        <span *ngIf="libro.author_name"> - {{ libro.author_name.join(', ') }}</span>
-                        <p *ngIf="libro.first_publish_year">Publicado en {{ libro.first_publish_year }}</p>
-                    </li>
-                </ul>
-            </div>
-
             <!-- Contenido de productos existente -->
             <div class="product_box">
                 <h1>Fotografía  <span>(por Mejor Autor)</span></h1>
